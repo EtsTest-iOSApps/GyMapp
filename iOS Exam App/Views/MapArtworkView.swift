@@ -9,20 +9,24 @@
 import Foundation
 import MapKit
 
-//class MapArtworkView: MKAnnotationView {
-//    override var annotation: MKAnnotation? {
-//        willSet {
-//            guard let artwork = newValue as? MapArtwork else { return}
-//            tintColor = artwork.pinTintColor
-//        }
-//    }
-//}
 
-class MapArtworkView: MKMarkerAnnotationView {
+
+@available(iOS 11.0, *)
+class MapArtworkMarkerView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             guard let artwork = newValue as? MapArtwork else { return}
             markerTintColor = artwork.pinTintColor
+        }
+    }
+}
+
+class MapArtworkPinView: MKPinAnnotationView {
+    override var annotation: MKAnnotation? {
+        willSet {
+            guard let artwork = newValue as? MapArtwork else { return}
+//            tintColor = artwork.pinTintColor
+            pinTintColor = artwork.pinTintColor
         }
     }
 }

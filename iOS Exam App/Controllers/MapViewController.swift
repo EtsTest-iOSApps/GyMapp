@@ -12,10 +12,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     
-    var artworks: [MapArtwork] = []
-    
-    
-    
+    private var artworks: [MapArtwork] = []
 
     private var spacesList = [String: SpaceDetails]()
     private let initialLocation = CLLocation(latitude: 45.50884, longitude: -73.58781)
@@ -36,7 +33,6 @@ class MapViewController: UIViewController {
     }
     
     private func setupMap() {
-        mapView.register(MapArtworkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.delegate = self
     }
     
@@ -100,41 +96,28 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//
-//        let identifier = "markerId"
-//        var annotationView: MKMarkerAnnotationView
-//        if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView{
-//            dequeueView.annotation = annotation
-//            annotationView = dequeueView
-//        } else {
-//            if #available(iOS 11.0, *) {
-//                annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            } else {
-////                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//                annotationView = MKMarkerAnnotationView(frame: .init())
-//            }
-//        }
-////        annotationView.markerTintColor = .green
-//        return annotationView
-//    }
-    
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             
             let identifier = "markerId"
-            var annotationView: MapArtworkView
-            if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkView {
-                dequeueView.annotation = annotation
-                annotationView = dequeueView
-            } else {
-                if #available(iOS 11.0, *) {
-                    annotationView = MapArtworkView(annotation: annotation, reuseIdentifier: identifier)
+            
+            if #available(iOS 11.0, *) {
+                var annotationView: MapArtworkMarkerView
+                if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkMarkerView {
+                    dequeueView.annotation = annotation
+                    annotationView = dequeueView
                 } else {
-    //                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                    annotationView = MapArtworkView(frame: .init())
+                    annotationView = MapArtworkMarkerView(annotation: annotation, reuseIdentifier: identifier)
                 }
+                return annotationView
+            } else {
+                var annotationView: MapArtworkPinView
+                if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkPinView{
+                    dequeueView.annotation = annotation
+                    annotationView = dequeueView
+                } else {
+                    annotationView = MapArtworkPinView(annotation: annotation, reuseIdentifier: identifier)
+                }
+                return annotationView
             }
-    //        annotationView.markerTintColor = .green
-            return annotationView
         }
 }
