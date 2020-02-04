@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let vc = LandingViewController()
         let navController = UINavigationController(rootViewController: vc)
+        navController.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
         window?.rootViewController = navController
         return true
     }

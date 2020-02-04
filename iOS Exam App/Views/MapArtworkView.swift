@@ -9,8 +9,6 @@
 import Foundation
 import MapKit
 
-
-
 @available(iOS 11.0, *)
 class MapArtworkMarkerView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
@@ -25,7 +23,6 @@ class MapArtworkPinView: MKPinAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             guard let artwork = newValue as? MapArtwork else { return}
-//            tintColor = artwork.pinTintColor
             pinTintColor = artwork.pinTintColor
         }
     }

@@ -24,13 +24,16 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.title = "Login"
-        
-        view.backgroundColor = .white
+        setupNavigationBar()
         setupViews()
     }
     
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.backItem?.title = ""
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
+    }
     private func setupViews() {
+        view.backgroundColor = .white
         view.addSubview(facebookSignInButton)
         
         facebookSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true

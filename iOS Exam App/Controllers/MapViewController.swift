@@ -37,7 +37,22 @@ class MapViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "List", style: .plain, target: self, action: #selector(handleListPressed))
+        navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(handleLogoutPressed))
+        navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
+    }
+    
+    @objc private func handleListPressed() {
+        let layout = UICollectionViewFlowLayout()
+        let listVC = ListViewController(collectionViewLayout: layout)
+        let navController = UINavigationController(rootViewController: listVC)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
+    }
+    
+    @objc private func handleLogoutPressed() {
+        print("log out!!")
     }
     
     private func setupViews() {

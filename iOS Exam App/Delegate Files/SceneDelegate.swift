@@ -25,6 +25,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let vc = LandingViewController()
         let navController = UINavigationController(rootViewController: vc)
+        
+        let standardApprearence = UINavigationBarAppearance()
+        standardApprearence.configureWithDefaultBackground()
+        
+        let backButtonAppearence = UIBarButtonItemAppearance()
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
+        backButtonAppearence.normal.titleTextAttributes = titleTextAttributes
+        backButtonAppearence.highlighted.titleTextAttributes = titleTextAttributes
+        standardApprearence.backButtonAppearance = backButtonAppearence
+
+        UINavigationBar.appearance().standardAppearance = standardApprearence
+        UINavigationBar.appearance().compactAppearance = standardApprearence
+        UINavigationBar.appearance().scrollEdgeAppearance = standardApprearence
+        
         window?.rootViewController = navController
     }
 
