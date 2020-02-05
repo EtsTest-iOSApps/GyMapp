@@ -9,10 +9,7 @@
 import UIKit
 
 class ImageCollectionView: UICollectionView {
-    
 
-    
-    
     private let cellId = "cellId"
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -20,8 +17,7 @@ class ImageCollectionView: UICollectionView {
         layout.scrollDirection = .horizontal
         
         super.init(frame: frame, collectionViewLayout: layout)
-        backgroundColor = .red
-        
+        backgroundColor = .red        
         translatesAutoresizingMaskIntoConstraints = false
     }
     
