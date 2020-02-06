@@ -7,12 +7,21 @@
 //
 
 import UIKit
-
-
+import CoreLocation
 
 class ListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let cellId = "cellId"
+    
+    var spacesList =  [SpaceDetails]()
+    
+    var userLocation: CLLocation? {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +44,19 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return spacesList.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ListViewCell
-        cell.sizeToFit()
+        cell.spaceDetails = spacesList[indexPath.item]
+//        cell.sizeToFit()
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
+        detailVC.spaceDetail = spacesList[indexPath.item]
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

@@ -8,15 +8,29 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
     
+    let locationManager = CLLocationManager()
+    var userLocation: CLLocation?
     
     private var artworks: [MapArtwork] = []
 
-    private var spacesList = [String: SpaceDetails]()
+    private var spacesList = [SpaceDetails]()
+    
+    private var spacesDictionary: [String: SpaceDetails]? {
+        didSet {
+            spacesDictionary?.forEach({ (_, value) in
+                spacesList.append(value)
+            })
+            self.displayDataOnMap()
+        }
+    }
+    
     private let initialLocation = CLLocation(latitude: 45.50884, longitude: -73.58781)
     private let regionRadius: CLLocationDistance = 5000
+    
     private let mapView: MKMapView = {
         let mv = MKMapView()
         mv.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +39,9 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkLocationService()
+        
         setupMap()
         fetchData()
         setupNavigationBar()
@@ -44,11 +61,24 @@ class MapViewController: UIViewController {
     }
     
     @objc private func handleListPressed() {
+        mesureDistanceBetweenSpaceAndUser()
+        
         let layout = UICollectionViewFlowLayout()
         let listVC = ListViewController(collectionViewLayout: layout)
+        
+        listVC.spacesList = spacesList
         let navController = UINavigationController(rootViewController: listVC)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true, completion: nil)
+    }
+    
+    private func mesureDistanceBetweenSpaceAndUser() {
+        guard let userLocation = userLocation else { return }
+        for index in 0..<spacesList.count {
+            let spaceLocation = CLLocation(latitude: spacesList[index].latitude, longitude: spacesList[index].longitude)
+            let distance = spaceLocation.distance(from: userLocation) / 1000
+            spacesList[index].distanceFromUser = distance
+        }
     }
     
     @objc private func handleLogoutPressed() {
@@ -82,12 +112,11 @@ class MapViewController: UIViewController {
             let decoder = JSONDecoder()
             do {
                 let spaces = try decoder.decode(Spaces.self, from: data)
-                self.spacesList = spaces.spaces
+                self.spacesDictionary = spaces.spaces
             } catch let err {
                 print("Error while parsing json: ", err)
                 return
             }
-            self.displayDataOnMap()
         }.resume()
     }
     
@@ -98,23 +127,64 @@ class MapViewController: UIViewController {
     
     private func displayDataOnMap() {
         
-        spacesList.forEach { (key: String, spaceDetail: SpaceDetails) in
+        spacesList.forEach { (spaceDetail) in
             let spaceCoordinate = CLLocationCoordinate2D(latitude: spaceDetail.latitude, longitude: spaceDetail.longitude)
-            let artwork = MapArtwork(coordinate: spaceCoordinate, status: spaceDetail.status)
+            let artwork = MapArtwork(coordinate: spaceCoordinate, status: spaceDetail.status, details: spaceDetail)
             artworks.append(artwork)
         }
         DispatchQueue.main.async {
             self.mapView.addAnnotations(self.artworks)
         }
-        
+    }
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func checkLocationService() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+            checkLocationAuthorization()
+        } else {
+            showAlert(title: "Disabled", message: "The location services are disabled", action: "OK")
+        }
+    }
+    
+    private func checkLocationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse, .authorizedAlways:
+            mapView.showsUserLocation = true
+            locationManager.startUpdatingLocation()
+        case .denied:
+            showAlert(title: "Denied", message: "The location service is denied for this app", action: "OK")
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            showAlert(title: "Restricted", message: "The location service is restricted, you don't have the rights to use it", action: "OK")
+        default:
+            break
+        }
+    }
+    
+    //MARK: - Alert Method
+    
+    private func showAlert(title: String?, message: String?, action: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: action, style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
 
+//MARK: - MapViewDelegate Extension
+
 extension MapViewController: MKMapViewDelegate {
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            if annotation is MKUserLocation {
+                return nil
+            }
             
             let identifier = "markerId"
-            
             if #available(iOS 11.0, *) {
                 var annotationView: MapArtworkMarkerView
                 if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkMarkerView {
@@ -135,4 +205,24 @@ extension MapViewController: MKMapViewDelegate {
                 return annotationView
             }
         }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation as? MapArtwork else { return }
+        print("Got here")
+        let selectedSpaceDetails = annotation.details
+        let detailVC = DetailViewController()
+        detailVC.spaceDetail = selectedSpaceDetails
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+//MARK: - LocationManagerDelegate Extension
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let userLocationCoordinate = manager.location?.coordinate else { return }
+        userLocation = CLLocation(latitude: userLocationCoordinate.latitude, longitude: userLocationCoordinate.longitude)
+        locationManager.stopUpdatingLocation()
+    }
 }

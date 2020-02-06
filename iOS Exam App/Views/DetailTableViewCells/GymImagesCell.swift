@@ -18,12 +18,12 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
         layout.minimumLineSpacing = 0
         let imageCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
         imageCV.translatesAutoresizingMaskIntoConstraints = false
-        imageCV.backgroundColor = .black
+        imageCV.backgroundColor = .white
         return imageCV
     }()
     
     override func setupView() {
-        backgroundColor = .red
+        super.setupView()
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
         imagesCollectionView.register(GymImageCell.self, forCellWithReuseIdentifier: imageCellId)
@@ -52,24 +52,22 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 
-fileprivate class GymImageCell: UICollectionViewCell {
+fileprivate class GymImageCell: BaseCollectionCell {
     let spaceIV: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.backgroundColor = .orange
+        iv.backgroundColor = .black
         return iv
     }()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    override func setupView() {
+        super.setupView()
+        
         addSubview(spaceIV)
         spaceIV.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
         spaceIV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         spaceIV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         spaceIV.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0F738423EBC761004182A4 /* GymDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */; };
+		0E0F738623EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */; };
+		0E0F738823EBDDDA004182A4 /* GymEquipementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */; };
+		0E0F738A23EBDF7B004182A4 /* GymAmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */; };
+		0E0F738C23EBE145004182A4 /* GymLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738B23EBE145004182A4 /* GymLocationCell.swift */; };
+		0E0F738E23EBE17E004182A4 /* GymOpeningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */; };
 		0EA2BE3523E9DE3700C70BDD /* MapArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */; };
 		0EA2BE3723E9E38300C70BDD /* MapArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */; };
 		0EA2BE3A23E9F7E600C70BDD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3923E9F7E600C70BDD /* Extensions.swift */; };
 		0EA2BE3C23EA166100C70BDD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3B23EA166100C70BDD /* ListViewController.swift */; };
 		0EA2BE3E23EA1C6E00C70BDD /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */; };
 		0EA2BE4023EA25FA00C70BDD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */; };
-		0EA2BE4223EA263900C70BDD /* DetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE4123EA263900C70BDD /* DetailScrollView.swift */; };
-		0EA2BE4423EA2BCB00C70BDD /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE4323EA2BCB00C70BDD /* ImageCollectionView.swift */; };
-		0EA2BE4723EA3F9600C70BDD /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE4623EA3F9600C70BDD /* BaseCell.swift */; };
+		0EA2BE4723EA3F9600C70BDD /* BaseCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */; };
 		0EA2BE4923EA400700C70BDD /* GymImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */; };
 		0EC961EC23E8C1C7000E6E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC961EB23E8C1C7000E6E4C /* AppDelegate.swift */; };
 		0EC961EE23E8C1C7000E6E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC961ED23E8C1C7000E6E4C /* SceneDelegate.swift */; };
@@ -30,15 +34,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymDescriptionCell.swift; sourceTree = "<group>"; };
+		0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymEquipementCell.swift; sourceTree = "<group>"; };
+		0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymAmenitiesCell.swift; sourceTree = "<group>"; };
+		0E0F738B23EBE145004182A4 /* GymLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationCell.swift; sourceTree = "<group>"; };
+		0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymOpeningCell.swift; sourceTree = "<group>"; };
 		0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtwork.swift; sourceTree = "<group>"; };
 		0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtworkView.swift; sourceTree = "<group>"; };
 		0EA2BE3923E9F7E600C70BDD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0EA2BE3B23EA166100C70BDD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		0EA2BE4123EA263900C70BDD /* DetailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScrollView.swift; sourceTree = "<group>"; };
-		0EA2BE4323EA2BCB00C70BDD /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
-		0EA2BE4623EA3F9600C70BDD /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCells.swift; sourceTree = "<group>"; };
 		0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymImagesCell.swift; sourceTree = "<group>"; };
 		0EC961E823E8C1C7000E6E4C /* iOS Exam App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Exam App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC961EB23E8C1C7000E6E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,8 +78,6 @@
 			children = (
 				0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */,
 				0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */,
-				0EA2BE4123EA263900C70BDD /* DetailScrollView.swift */,
-				0EA2BE4323EA2BCB00C70BDD /* ImageCollectionView.swift */,
 				0EA2BE4523EA3F6500C70BDD /* DetailTableViewCells */,
 			);
 			path = Views;
@@ -80,8 +86,14 @@
 		0EA2BE4523EA3F6500C70BDD /* DetailTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				0EA2BE4623EA3F9600C70BDD /* BaseCell.swift */,
+				0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */,
 				0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */,
+				0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */,
+				0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */,
+				0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */,
+				0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */,
+				0E0F738B23EBE145004182A4 /* GymLocationCell.swift */,
+				0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */,
 			);
 			path = DetailTableViewCells;
 			sourceTree = "<group>";
@@ -222,18 +234,22 @@
 			files = (
 				0EA2BE4023EA25FA00C70BDD /* DetailViewController.swift in Sources */,
 				0EC9620523E8CBC8000E6E4C /* LogInViewController.swift in Sources */,
+				0E0F738C23EBE145004182A4 /* GymLocationCell.swift in Sources */,
 				0EC9620923E8D0DC000E6E4C /* MapViewController.swift in Sources */,
 				0EC961F023E8C1C7000E6E4C /* LandingViewController.swift in Sources */,
-				0EA2BE4723EA3F9600C70BDD /* BaseCell.swift in Sources */,
-				0EA2BE4423EA2BCB00C70BDD /* ImageCollectionView.swift in Sources */,
+				0E0F738423EBC761004182A4 /* GymDescriptionCell.swift in Sources */,
+				0EA2BE4723EA3F9600C70BDD /* BaseCells.swift in Sources */,
 				0EA2BE4923EA400700C70BDD /* GymImagesCell.swift in Sources */,
-				0EA2BE4223EA263900C70BDD /* DetailScrollView.swift in Sources */,
 				0EA2BE3523E9DE3700C70BDD /* MapArtwork.swift in Sources */,
 				0EA2BE3E23EA1C6E00C70BDD /* ListViewCell.swift in Sources */,
 				0EA2BE3723E9E38300C70BDD /* MapArtworkView.swift in Sources */,
 				0EA2BE3C23EA166100C70BDD /* ListViewController.swift in Sources */,
+				0E0F738623EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift in Sources */,
 				0EA2BE3A23E9F7E600C70BDD /* Extensions.swift in Sources */,
+				0E0F738A23EBDF7B004182A4 /* GymAmenitiesCell.swift in Sources */,
 				0EC961EC23E8C1C7000E6E4C /* AppDelegate.swift in Sources */,
+				0E0F738823EBDDDA004182A4 /* GymEquipementCell.swift in Sources */,
+				0E0F738E23EBE17E004182A4 /* GymOpeningCell.swift in Sources */,
 				0EC9620C23E8D9C4000E6E4C /* SpacesModel.swift in Sources */,
 				0EC961EE23E8C1C7000E6E4C /* SceneDelegate.swift in Sources */,
 				0EC9620723E8CBDC000E6E4C /* SignUpViewController.swift in Sources */,

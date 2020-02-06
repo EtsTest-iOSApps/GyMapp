@@ -36,6 +36,7 @@ struct SpaceDetails: Decodable {
     let squareFootage: Int
     let status: String
     let timeZone: String
+    var distanceFromUser: Double?
     
     private enum CodingKeys: String, CodingKey {
         case address = "address"
@@ -57,5 +58,6 @@ struct SpaceDetails: Decodable {
         case squareFootage = "square_footage"
         case status = "status"
         case timeZone = "timezone"
+//        case distanceFromUser
     }
 }

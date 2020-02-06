@@ -12,8 +12,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     private let cellId = "cellId"
     
+    var spaceDetail: SpaceDetails? {
+        didSet {
+            DispatchQueue.main.async {
+                self.detailTableView.reloadData()
+            }
+        }
+    }
+    
     let detailTableView: UITableView = {
         let tv = UITableView()
+        tv.allowsSelection = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -22,7 +31,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         setupView()
         setupTableView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +51,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             navigationController?.navigationBar.shadowImage = UIImage()
             navigationController?.navigationBar.isTranslucent = true
         }
-        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
+//        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -76,7 +85,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     private func setupTableView() {
-        detailTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         detailTableView.separatorColor = .clear
         detailTableView.delegate = self
         detailTableView.dataSource = self
@@ -114,25 +122,37 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = GymImagesCell()
-            return cell
-//        case 1:
-//        
-//        case 2:
-//            
-//        case 3:
-//            
-//        case 4:
-//            
-//        case 5:
-//            
+            let gymImagesCell = GymImagesCell()
+            return gymImagesCell
+        case 1:
+            let descriptionCell = GymDescriptionCell()
+            descriptionCell.spaceDetails = spaceDetail
+            return descriptionCell
+        case 2:
+            let equipementCell = GymEquipmentCell()
+            equipementCell.spaceDetails = spaceDetail
+            return equipementCell
+        case 3:
+            let amenitiesCell = GymAmenitiesCell()
+            amenitiesCell.spaceDetails = spaceDetail
+            return amenitiesCell
+        case 4:
+            let locationCell = GymLocationCell()
+            locationCell.spaceDetails = spaceDetail
+            return locationCell
+        case 5:
+            let openingCell = GymOpeningCell()
+            openingCell.spaceDetails = spaceDetail
+            return openingCell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-            cell.textLabel?.text = "some text to show on rows"
+            let cell = UITableViewCell()
             return cell
         }
-        
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: false)
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
@@ -147,8 +167,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         switch indexPath.section {
         case 0:
             return 300
+        case 1:
+            return 250
+        case 2, 3:
+            return 100
+        case 4:
+            return 420
         default:
-            return 80
+            return 40
         }
     }
     
