@@ -14,8 +14,8 @@ class GymCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlowLayo
     let iconsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
         cv.backgroundColor = .white
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv

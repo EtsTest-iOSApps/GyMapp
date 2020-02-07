@@ -14,6 +14,7 @@ class ListViewCell: UICollectionViewCell {
     var spaceDetails: SpaceDetails? {
         didSet {
             guard let spaceDetails = spaceDetails else { return }
+            spaceImageView.loadImageUsingUrlString(urlString: spaceDetails.imageUrls.first!)
             specificationLabel.text = "From $\(spaceDetails.rate)/HR · \(spaceDetails.squareFootage) SQ. FT. · Up to \(spaceDetails.maxCapacity) people"
             addressLabel.text = spaceDetails.name
             if let distanceFromUser = spaceDetails.distanceFromUser {
@@ -21,13 +22,14 @@ class ListViewCell: UICollectionViewCell {
             } else {
                 distanceLabel.text = "Distance not available"
             }
+            
         }
     }
     
-    let spaceImageView: UIImageView = {
-        let iv = UIImageView()
+    let spaceImageView: CustomImageView = {
+        let iv = CustomImageView()
         iv.contentMode = .scaleToFill
-        iv.backgroundColor = .black
+        
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()

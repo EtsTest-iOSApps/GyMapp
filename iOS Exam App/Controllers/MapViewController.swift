@@ -16,14 +16,17 @@ class MapViewController: UIViewController {
     var userLocation: CLLocation?
     
     private var artworks: [MapArtwork] = []
-
+    
     private var spacesList = [SpaceDetails]()
+    
+    private var spacesImagesArray: [[UIImage]]?
     
     private var spacesDictionary: [String: SpaceDetails]? {
         didSet {
             spacesDictionary?.forEach({ (_, value) in
                 spacesList.append(value)
             })
+            
             self.displayDataOnMap()
         }
     }
@@ -36,21 +39,19 @@ class MapViewController: UIViewController {
         mv.translatesAutoresizingMaskIntoConstraints = false
         return mv
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         checkLocationService()
-        
         setupMap()
         fetchData()
         setupNavigationBar()
         setupViews()
-        centerMapOnLocation(location: initialLocation)
     }
     
     private func setupMap() {
         mapView.delegate = self
+        centerMapOnLocation(location: initialLocation)
     }
     
     private func setupNavigationBar() {
@@ -179,37 +180,37 @@ class MapViewController: UIViewController {
 //MARK: - MapViewDelegate Extension
 
 extension MapViewController: MKMapViewDelegate {
-        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            if annotation is MKUserLocation {
-                return nil
-            }
-            
-            let identifier = "markerId"
-            if #available(iOS 11.0, *) {
-                var annotationView: MapArtworkMarkerView
-                if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkMarkerView {
-                    dequeueView.annotation = annotation
-                    annotationView = dequeueView
-                } else {
-                    annotationView = MapArtworkMarkerView(annotation: annotation, reuseIdentifier: identifier)
-                }
-                return annotationView
-            } else {
-                var annotationView: MapArtworkPinView
-                if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkPinView{
-                    dequeueView.annotation = annotation
-                    annotationView = dequeueView
-                } else {
-                    annotationView = MapArtworkPinView(annotation: annotation, reuseIdentifier: identifier)
-                }
-                return annotationView
-            }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
         }
+        
+        let identifier = "markerId"
+        if #available(iOS 11.0, *) {
+            var annotationView: MapArtworkMarkerView
+            if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkMarkerView {
+                dequeueView.annotation = annotation
+                annotationView = dequeueView
+            } else {
+                annotationView = MapArtworkMarkerView(annotation: annotation, reuseIdentifier: identifier)
+            }
+            return annotationView
+        } else {
+            var annotationView: MapArtworkPinView
+            if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MapArtworkPinView{
+                dequeueView.annotation = annotation
+                annotationView = dequeueView
+            } else {
+                annotationView = MapArtworkPinView(annotation: annotation, reuseIdentifier: identifier)
+            }
+            return annotationView
+        }
+    }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation as? MapArtwork else { return }
-        print("Got here")
         let selectedSpaceDetails = annotation.details
+        
         let detailVC = DetailViewController()
         detailVC.spaceDetail = selectedSpaceDetails
         navigationController?.pushViewController(detailVC, animated: true)

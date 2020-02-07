@@ -6,7 +6,7 @@
 //  Copyright © 2020 Merouane Tazeka. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Spaces: Decodable {
     let spaces: [String: SpaceDetails]
@@ -23,7 +23,7 @@ struct SpaceDetails: Decodable {
     let description: String
     let equipments: [String]
     let floor: String
-    let imageUrls: [String]
+    var imageUrls: [String]
     let latitude: Double
     let longitude: Double
     let maxCapacity: Int
@@ -36,7 +36,6 @@ struct SpaceDetails: Decodable {
     let squareFootage: Int
     let status: String
     let timeZone: String
-    var distanceFromUser: Double?
     
     private enum CodingKeys: String, CodingKey {
         case address = "address"
@@ -58,6 +57,10 @@ struct SpaceDetails: Decodable {
         case squareFootage = "square_footage"
         case status = "status"
         case timeZone = "timezone"
-//        case distanceFromUser
     }
+    
+    var distanceFromUser: Double?
+    var imagesArray: [UIImage]?
+
+    
 }

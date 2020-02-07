@@ -23,6 +23,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let detailTableView: UITableView = {
         let tv = UITableView()
         tv.allowsSelection = false
+        tv.showsVerticalScrollIndicator = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -123,6 +124,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         switch indexPath.section {
         case 0:
             let gymImagesCell = GymImagesCell()
+            gymImagesCell.spaceImagesUrls = spaceDetail?.imageUrls
             return gymImagesCell
         case 1:
             let descriptionCell = GymDescriptionCell()

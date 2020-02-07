@@ -1,16 +1,36 @@
-//
-//  Extensions.swift
-//  iOS Exam App
-//
-//  Created by Merouane Tazeka on 2020-02-04.
-//  Copyright © 2020 Merouane Tazeka. All rights reserved.
-//
-
 import UIKit
 
-extension UINavigationController {
-    func setupNavigationItemTintColor() {
-        navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
-        navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
+let imageCache = NSCache<NSString, UIImage>()
+
+class CustomImageView: UIImageView {
+    
+    var imageUrlString: String?
+    
+    func loadImageUsingUrlString(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        let nsString = NSString(string: urlString)
+        image = nil
+        
+        if let imageFromCache = imageCache.object(forKey: nsString) {
+            self.image = imageFromCache
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let data = data else { return }
+                guard let image = UIImage(data: data) else { return }
+                imageCache.setObject(image, forKey: nsString)
+                self.image = image
+            }
+            
+        }.resume()
     }
+    
+    
 }

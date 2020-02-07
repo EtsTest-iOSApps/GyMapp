@@ -50,7 +50,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ListViewCell
         cell.spaceDetails = spacesList[indexPath.item]
-//        cell.sizeToFit()
         return cell
     }
     

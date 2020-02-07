@@ -10,16 +10,39 @@ import UIKit
 
 class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private let imageCellId = "imageCellId"
+    var spaceImagesUrls: [String]? {
+        didSet {
+            guard let imageUrls = spaceImagesUrls else { return }
+            pageControl.numberOfPages = imageUrls.count
+            
+            DispatchQueue.main.async {
+                self.imagesCollectionView.reloadData()
+            }
+        }
+    }
     
     let imagesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         let imageCV = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        imageCV.isPagingEnabled = true
+        imageCV.showsHorizontalScrollIndicator = false
         imageCV.translatesAutoresizingMaskIntoConstraints = false
-        imageCV.backgroundColor = .white
+        imageCV.backgroundColor = .black
         return imageCV
+    }()
+    
+    private let imageCellId = "imageCellId"
+    
+    let pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.translatesAutoresizingMaskIntoConstraints = false
+        pc.currentPage = 0
+        pc.numberOfPages = 4
+        pc.currentPageIndicatorTintColor = .white
+        pc.pageIndicatorTintColor = UIColor(white: 0.5, alpha: 0.5)
+        return pc
     }()
     
     override func setupView() {
@@ -33,14 +56,23 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
         imagesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         imagesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         imagesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        
+        addSubview(pageControl)
+        pageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        pageControl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        pageControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        pageControl.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return spaceImagesUrls?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCellId, for: indexPath) as! GymImageCell
+        if let imageUrl = spaceImagesUrls?[indexPath.item] {
+            cell.spaceImageView.loadImageUsingUrlString(urlString: imageUrl)
+        }
         return cell
     }
     
@@ -49,25 +81,30 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
         return size
     }
     
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(x / frame.width)
+    }
     
 }
 
 fileprivate class GymImageCell: BaseCollectionCell {
-    let spaceIV: UIImageView = {
-        let iv = UIImageView()
+    let spaceImageView: CustomImageView = {
+        let iv = CustomImageView()
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.backgroundColor = .black
+        iv.clipsToBounds = true
+        iv.backgroundColor = .white
         return iv
     }()
     
     override func setupView() {
         super.setupView()
         
-        addSubview(spaceIV)
-        spaceIV.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
-        spaceIV.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
-        spaceIV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-        spaceIV.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        addSubview(spaceImageView)
+        spaceImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        spaceImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        spaceImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        spaceImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
     }
 }
