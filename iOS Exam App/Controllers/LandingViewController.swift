@@ -73,12 +73,12 @@ class LandingViewController: UIViewController {
     }
     
     @objc private func handleSignIn() {
-        let loginVC = LogInViewController()
+        let loginVC = LoginViewController()
         navigationController?.pushViewController(loginVC, animated: true)
     }
     
     @objc private func handleJoin() {
-        let signUpVC = SignUpViewController()
+        let signUpVC = SignupViewController()
         navigationController?.pushViewController(signUpVC, animated: true)
     }
 }

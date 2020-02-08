@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
+import FBSDKLoginKit
 
 class MapViewController: UIViewController {
     
@@ -34,7 +36,7 @@ class MapViewController: UIViewController {
     private let initialLocation = CLLocation(latitude: 45.50884, longitude: -73.58781)
     private let regionRadius: CLLocationDistance = 5000
     
-    private let mapView: MKMapView = {
+    private var mapView: MKMapView = {
         let mv = MKMapView()
         mv.translatesAutoresizingMaskIntoConstraints = false
         return mv
@@ -62,6 +64,7 @@ class MapViewController: UIViewController {
     }
     
     @objc private func handleListPressed() {
+        
         mesureDistanceBetweenSpaceAndUser()
         
         let layout = UICollectionViewFlowLayout()
@@ -83,7 +86,16 @@ class MapViewController: UIViewController {
     }
     
     @objc private func handleLogoutPressed() {
-        print("log out!!")
+        let fbLoginManager = LoginManager()
+        fbLoginManager.logOut()
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let err {
+            print("Error while trying to log out: ", err)
+            return
+        }
+        
     }
     
     private func setupViews() {
