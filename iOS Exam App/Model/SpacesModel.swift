@@ -60,7 +60,4 @@ struct SpaceDetails: Decodable {
     }
     
     var distanceFromUser: Double?
-    var imagesArray: [UIImage]?
-
-    
 }

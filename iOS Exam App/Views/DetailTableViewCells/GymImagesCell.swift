@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol SelectedImageFromCollectionViewDelegate: class {
+    func didSelectImageFromCollectionView(index: Int)
+}
+
 class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    weak var delegate: SelectedImageFromCollectionViewDelegate?
     
     var spaceImagesUrls: [String]? {
         didSet {
@@ -76,9 +82,14 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = CGSize(width: frame.width, height: frame.height)
         return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.didSelectImageFromCollectionView(index: indexPath.item)
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

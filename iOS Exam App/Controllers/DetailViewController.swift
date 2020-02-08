@@ -35,6 +35,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithTransparentBackground()
@@ -52,7 +53,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             navigationController?.navigationBar.shadowImage = UIImage()
             navigationController?.navigationBar.isTranslucent = true
         }
-//        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
@@ -125,6 +125,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 0:
             let gymImagesCell = GymImagesCell()
             gymImagesCell.spaceImagesUrls = spaceDetail?.imageUrls
+            gymImagesCell.delegate = self
             return gymImagesCell
         case 1:
             let descriptionCell = GymDescriptionCell()
@@ -152,10 +153,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: false)
-//    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0, 1:
@@ -180,6 +177,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+
     
     private class HeaderLabel: UILabel {
         override init(frame: CGRect) {
@@ -199,4 +197,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             fatalError("init(coder:) has not been implemented")
         }
     }
+}
+
+extension DetailViewController: SelectedImageFromCollectionViewDelegate {
+    
+    func didSelectImageFromCollectionView(index: Int) {
+        let galleryViewController = GalleryViewController()
+        galleryViewController.spaceImagesUrls = spaceDetail?.imageUrls
+        galleryViewController.modalPresentationStyle = .fullScreen
+        galleryViewController.selectedIndex = index
+        present(galleryViewController, animated: true, completion: nil)
+    }
+    
 }

@@ -15,6 +15,7 @@ class MapArtworkMarkerView: MKMarkerAnnotationView {
         willSet {
             guard let artwork = newValue as? MapArtwork else { return}
             markerTintColor = artwork.pinTintColor
+            
         }
     }
 }

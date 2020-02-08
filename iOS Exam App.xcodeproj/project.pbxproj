@@ -13,6 +13,8 @@
 		0E0F738A23EBDF7B004182A4 /* GymAmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */; };
 		0E0F738C23EBE145004182A4 /* GymLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738B23EBE145004182A4 /* GymLocationCell.swift */; };
 		0E0F738E23EBE17E004182A4 /* GymOpeningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */; };
+		0E5CD60D23ED31130058FE70 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CD60C23ED31130058FE70 /* GalleryViewController.swift */; };
+		0E5CD60F23ED3A440058FE70 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */; };
 		0EA2BE3523E9DE3700C70BDD /* MapArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */; };
 		0EA2BE3723E9E38300C70BDD /* MapArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */; };
 		0EA2BE3A23E9F7E600C70BDD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3923E9F7E600C70BDD /* Extensions.swift */; };
@@ -40,6 +42,8 @@
 		0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymAmenitiesCell.swift; sourceTree = "<group>"; };
 		0E0F738B23EBE145004182A4 /* GymLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationCell.swift; sourceTree = "<group>"; };
 		0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymOpeningCell.swift; sourceTree = "<group>"; };
+		0E5CD60C23ED31130058FE70 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
 		0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtwork.swift; sourceTree = "<group>"; };
 		0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtworkView.swift; sourceTree = "<group>"; };
 		0EA2BE3923E9F7E600C70BDD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */,
 				0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */,
 				0EA2BE4523EA3F6500C70BDD /* DetailTableViewCells */,
+				0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				0EC9620823E8D0DC000E6E4C /* MapViewController.swift */,
 				0EA2BE3B23EA166100C70BDD /* ListViewController.swift */,
 				0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */,
+				0E5CD60C23ED31130058FE70 /* GalleryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,9 +249,11 @@
 				0EA2BE3523E9DE3700C70BDD /* MapArtwork.swift in Sources */,
 				0EA2BE3E23EA1C6E00C70BDD /* ListViewCell.swift in Sources */,
 				0EA2BE3723E9E38300C70BDD /* MapArtworkView.swift in Sources */,
+				0E5CD60D23ED31130058FE70 /* GalleryViewController.swift in Sources */,
 				0EA2BE3C23EA166100C70BDD /* ListViewController.swift in Sources */,
 				0E0F738623EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift in Sources */,
 				0EA2BE3A23E9F7E600C70BDD /* Extensions.swift in Sources */,
+				0E5CD60F23ED3A440058FE70 /* ImageGalleryCell.swift in Sources */,
 				0E0F738A23EBDF7B004182A4 /* GymAmenitiesCell.swift in Sources */,
 				0EC961EC23E8C1C7000E6E4C /* AppDelegate.swift in Sources */,
 				0E0F738823EBDDDA004182A4 /* GymEquipementCell.swift in Sources */,
