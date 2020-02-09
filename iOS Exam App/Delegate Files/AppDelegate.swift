@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = LandingViewController()
         let navController = UINavigationController(rootViewController: vc)
         navController.navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
+        
         window?.rootViewController = navController
         return true
     }
@@ -54,29 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-    
-    
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if let rootViewController = self.topViewControllerWithRootViewController(rootViewController: window?.rootViewController) {
-            if (rootViewController.responds(to: Selector(("canRotate")))) {
-                return .allButUpsideDown;
-            }
-        }
-        return .portrait;
-    }
-    
-    private func topViewControllerWithRootViewController(rootViewController: UIViewController!) -> UIViewController? {
-        if (rootViewController == nil) { return nil }
-        if (rootViewController.isKind(of: (UITabBarController).self)) {
-            return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UITabBarController).selectedViewController)
-        } else if (rootViewController.isKind(of:(UINavigationController).self)) {
-            return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UINavigationController).visibleViewController)
-        } else if (rootViewController.presentedViewController != nil) {
-            return topViewControllerWithRootViewController(rootViewController: rootViewController.presentedViewController)
-        }
-        return rootViewController
     }
 }
 

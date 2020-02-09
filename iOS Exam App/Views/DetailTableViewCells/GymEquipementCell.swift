@@ -20,8 +20,8 @@ class GymEquipmentCell: GymCollectionViewTableViewCell, UICollectionViewDataSour
     
     private let equipmentCellId = "equipmentCellId"
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         iconsCollectionView.dataSource = self
         iconsCollectionView.delegate = self
         iconsCollectionView.register(GymIconCell.self, forCellWithReuseIdentifier: equipmentCellId)
@@ -33,7 +33,7 @@ class GymEquipmentCell: GymCollectionViewTableViewCell, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = iconsCollectionView.dequeueReusableCell(withReuseIdentifier: equipmentCellId, for: indexPath) as! GymIconCell
-        cell.iconTextLabel.text = spaceDetails?.equipments[indexPath.item] ?? "Nil"
+        cell.iconTextLabel.text = spaceDetails?.equipments[indexPath.item]
         return cell
     }
 }

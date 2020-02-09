@@ -14,8 +14,7 @@ class MapArtwork: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let status: String
     let details: SpaceDetails?
-    
-//    init(name: String?, coordinate: CLLocationCoordinate2D, status: String) {
+
     init(coordinate: CLLocationCoordinate2D, status: String, details: SpaceDetails?) {
         self.coordinate = coordinate
         self.status = status
@@ -33,10 +32,4 @@ class MapArtwork: NSObject, MKAnnotation {
             return .yellow
         }
     }
-    
-//    var title: String? {
-//        return status
-//    }
-//
-//    var subtitle: String?
 }

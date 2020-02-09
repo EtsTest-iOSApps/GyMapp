@@ -23,8 +23,8 @@ class GymCollectionViewTableViewCell: BaseCell, UICollectionViewDelegateFlowLayo
     
     private let cellId = "cellId"
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         backgroundColor = .white
         
         addSubview(iconsCollectionView)
@@ -70,7 +70,7 @@ class GymIconCell: BaseCollectionCell {
         return l
     }()
     
-    override func setupView() {
+    override func initializeCell() {
         backgroundColor = .white
         
         addSubview(iconImageView)

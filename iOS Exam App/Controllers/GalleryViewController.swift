@@ -58,13 +58,6 @@ class GalleryViewController: UIViewController {
         setupView()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//    }
-    
-    func canRotate() {}
-    
     private func setupCollectionView() {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self

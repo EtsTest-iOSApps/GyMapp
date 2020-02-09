@@ -99,9 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */,
+				0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */,
 				0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */,
 				0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */,
-				0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */,
 				0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */,
 				0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */,
 				0E0F738B23EBE145004182A4 /* GymLocationCell.swift */,

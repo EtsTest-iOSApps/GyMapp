@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LandingViewController: UIViewController {
     
@@ -38,13 +39,18 @@ class LandingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.isNavigationBarHidden = true
         view.backgroundColor = .white
         setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        
+        if Auth.auth().currentUser != nil {
+            let mapVC = MapViewController()
+            navigationController?.pushViewController(mapVC, animated: false)
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -29,8 +29,8 @@ class ImageGalleryCell: BaseCollectionCell {
         return iv
     }()
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         scrollView.delegate = self
         addSubview(scrollView)
         scrollView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true

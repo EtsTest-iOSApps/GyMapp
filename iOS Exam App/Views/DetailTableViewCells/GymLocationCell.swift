@@ -37,8 +37,8 @@ class GymLocationCell: BaseCell {
         return l
     }()
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         addSubview(fixedMapView)
         fixedMapView.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
         fixedMapView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
@@ -61,11 +61,9 @@ class GymLocationCell: BaseCell {
     }
     
     private func drawMarkerOnMap(_ location: CLLocationCoordinate2D) {
-//        if #available(iOS 11.0, *) {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
         fixedMapView.addAnnotation(annotation)
-//        }
     }
     
 }

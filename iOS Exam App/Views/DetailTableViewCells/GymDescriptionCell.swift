@@ -29,8 +29,8 @@ class GymDescriptionCell: BaseCell {
         return l
     }()
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         
         addSubview(descriptionLabel)
         descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true

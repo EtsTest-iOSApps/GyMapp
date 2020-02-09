@@ -41,7 +41,7 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
     
     private let imageCellId = "imageCellId"
     
-    let pageControl: UIPageControl = {
+    private let pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.translatesAutoresizingMaskIntoConstraints = false
         pc.currentPage = 0
@@ -51,8 +51,8 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
         return pc
     }()
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
         imagesCollectionView.register(GymImageCell.self, forCellWithReuseIdentifier: imageCellId)
@@ -109,8 +109,8 @@ fileprivate class GymImageCell: BaseCollectionCell {
         return iv
     }()
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         
         addSubview(spaceImageView)
         spaceImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true

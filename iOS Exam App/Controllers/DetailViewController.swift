@@ -176,27 +176,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return 40
         }
     }
-    
-
-    
-    private class HeaderLabel: UILabel {
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            text = "Title"
-            font = UIFont.systemFont(ofSize: 18, weight: .bold)
-            textColor = .black
-            
-        }
-        override func drawText(in rect: CGRect) {
-            let insets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-            super.drawText(in: rect.inset(by: insets))
-        }
-    
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    }
 }
 
 extension DetailViewController: SelectedImageFromCollectionViewDelegate {

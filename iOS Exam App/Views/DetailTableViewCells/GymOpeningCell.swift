@@ -36,8 +36,8 @@ class GymOpeningCell: BaseCell {
         return l
     }()
     
-    override func setupView() {
-        super.setupView()
+    override func initializeCell() {
+        super.initializeCell()
         addSubview(daysLabel)
         daysLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
         daysLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true

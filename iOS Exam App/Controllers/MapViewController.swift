@@ -86,16 +86,23 @@ class MapViewController: UIViewController {
     }
     
     @objc private func handleLogoutPressed() {
-        let fbLoginManager = LoginManager()
-        fbLoginManager.logOut()
-        do {
-            try Auth.auth().signOut()
-            navigationController?.popToRootViewController(animated: true)
-        } catch let err {
-            print("Error while trying to log out: ", err)
-            return
-        }
         
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let logoutAction = UIAlertAction(title: "Log out", style: .destructive) { (_) in
+            do {
+                try Auth.auth().signOut()
+                let fbLoginManager = LoginManager()
+                fbLoginManager.logOut()
+                self.navigationController?.popToRootViewController(animated: true)
+            } catch let err {
+                print("Error while trying to log out: ", err)
+                return
+            }
+        }
+        ac.addAction(logoutAction)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        present(ac, animated: true, completion: nil)
     }
     
     private func setupViews() {
@@ -160,7 +167,7 @@ class MapViewController: UIViewController {
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            showAlert(title: "Disabled", message: "The location services are disabled", action: "OK")
+            showAlert(title: "Disabled", message: "The location services are disabled", action: "OK", handler: nil)
         }
     }
     
@@ -170,22 +177,14 @@ class MapViewController: UIViewController {
             mapView.showsUserLocation = true
             locationManager.startUpdatingLocation()
         case .denied:
-            showAlert(title: "Denied", message: "The location service is denied for this app", action: "OK")
+            showAlert(title: "Denied", message: "The location service is denied for this app", action: "OK", handler: nil)
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            showAlert(title: "Restricted", message: "The location service is restricted, you don't have the rights to use it", action: "OK")
+            showAlert(title: "Restricted", message: "The location service is restricted, you don't have the rights to use it", action: "OK", handler: nil)
         default:
             break
         }
-    }
-    
-    //MARK: - Alert Method
-    
-    private func showAlert(title: String?, message: String?, action: String?) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: action, style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
     }
 }
 
