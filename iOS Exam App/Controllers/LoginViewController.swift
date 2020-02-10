@@ -12,45 +12,45 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
-    let loginButton = FBLoginButton()
+    private let loginManager = LoginManager()
+    private let loginButton = FBLoginButton()
     
-//    private let facebookSignInButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle("Sign in with Facebook", for: .normal)
-//        button.setTitleColor(.white, for: .normal)
-//        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-//        button.backgroundColor = #colorLiteral(red: 0.1771525145, green: 0.3373974264, blue: 0.6473301649, alpha: 1)
-//        button.layer.cornerRadius = 25
-//        button.addTarget(self, action: #selector(handleSignInFacebook), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
+    private let titleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Hi there,\nwelcome back"
+        l.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        l.numberOfLines = 0
+        l.sizeToFit()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loginButton.delegate = self
+        loginManager.logOut()
+        
         setupNavigationBar()
         setupViews()
     }
-    
-    
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.backItem?.title = ""
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
     }
+    
     private func setupViews() {
         view.backgroundColor = .white
-        //        view.addSubview(facebookSignInButton)
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.layer.cornerRadius = 15
         loginButton.clipsToBounds = true
         
-        //        facebookSignInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
-        //        facebookSignInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
-        //        facebookSignInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        //        facebookSignInButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view.addSubview(titleLabel)
+        titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 25).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
@@ -58,22 +58,20 @@ class LoginViewController: UIViewController {
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    
-//    @objc private func handleSignInFacebook() {
-//        print("login Facebook")
-//        let mapVC = MapViewController()
-//        navigationController?.pushViewController(mapVC, animated: true)
-//    }
+    private func performLogout() {
+        let loginManager = LoginManager()
+        loginManager.logOut()
+    }
     
 }
 
 extension LoginViewController: LoginButtonDelegate {
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
-    }
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {}
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        self.loginButton.isHidden = true
         if let error = error {
+            self.loginButton.isHidden = false
             print("Error while login using Facebook: ", error)
             return
         }
@@ -81,18 +79,33 @@ extension LoginViewController: LoginButtonDelegate {
         let credential = FacebookAuthProvider.credential(withAccessToken: stringToken)
         
         
-        
         Auth.auth().signIn(with: credential) { (authResult, error) in
             
             if let error = error {
+                self.loginButton.isHidden = false
                 print("Error while authentifying with firebase: ", error)
                 return
             }
             
-            let mapVC = MapViewController()
-            self.navigationController?.pushViewController(mapVC, animated: true)
+            guard let userAdditionalInfo = authResult?.additionalUserInfo else { return }
+            
+            if !userAdditionalInfo.isNewUser {
+                let mapVC = MapViewController()
+                self.navigationController?.pushViewController(mapVC, animated: true)
+            } else {
+                self.showAlert(title: "Please Sign up", message: "You don't have an account at Silofit, please join", action: "Dismiss", handler: { (_) in
+                    self.navigationController?.popViewController(animated: true)
+                })
+                
+                self.performLogout()
+                
+                Auth.auth().currentUser?.delete(completion: { (error) in
+                    if let error = error {
+                        print("Error while trying to delete user: ", error)
+                        return
+                    }
+                })
+            }
         }
     }
-    
-    
 }
