@@ -10,7 +10,15 @@ import UIKit
 
 class ImageGalleryCell: BaseCollectionCell {
     
-    let scrollView: UIScrollView = {
+    let imageView: CustomImageView = {
+        let iv = CustomImageView()
+        iv.backgroundColor = .black
+        iv.contentMode = .scaleAspectFit
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+    
+    private let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.minimumZoomScale = 1.0
         sv.maximumZoomScale = 3.0
@@ -21,36 +29,26 @@ class ImageGalleryCell: BaseCollectionCell {
         return sv
     }()
     
-    let imageView: CustomImageView = {
-        let iv = CustomImageView()
-        iv.backgroundColor = .black
-        iv.contentMode = .scaleAspectFit
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
-    }()
-    
     override func initializeCell() {
         super.initializeCell()
+        
         scrollView.delegate = self
         addSubview(scrollView)
-        scrollView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        scrollView.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
-        scrollView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0).isActive = true
-        scrollView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         
         scrollView.addSubview(imageView)
         imageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
         imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0).isActive = true
         imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: 0).isActive = true
-        
-        
     }
 }
 
 extension ImageGalleryCell: UIScrollViewDelegate {
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        
         if scrollView.zoomScale > 1 {
             if let image = imageView.image {
                 

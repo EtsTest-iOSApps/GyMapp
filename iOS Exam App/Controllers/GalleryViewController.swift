@@ -11,7 +11,7 @@ import UIKit
 class GalleryViewController: UIViewController {
     
     var selectedIndex: Int?
-    
+
     var spaceImagesUrls: [String]? {
         didSet {
             DispatchQueue.main.async {
@@ -21,7 +21,7 @@ class GalleryViewController: UIViewController {
         }
     }
     
-    let pageControl: UIPageControl = {
+    private let pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.currentPage = 0
         return pc
@@ -29,6 +29,7 @@ class GalleryViewController: UIViewController {
     
     private let cellId = "cellId"
     private var didScroll = false
+    private var itemSize = CGSize()
     
     private let imageCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -58,6 +59,23 @@ class GalleryViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        guard let flowLayout = imageCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        itemSize = size
+        flowLayout.itemSize = itemSize
+        flowLayout.invalidateLayout()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let orientationValue = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(orientationValue, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
+    }
+
+    @objc func canRotate() -> Void {}
+    
     private func setupCollectionView() {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
@@ -68,6 +86,7 @@ class GalleryViewController: UIViewController {
         view.backgroundColor = .black
         view.addSubview(imageCollectionView)
         view.addSubview(backButton)
+        
         if #available(iOS 11.0, *) {
             imageCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
             imageCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
@@ -110,11 +129,11 @@ extension GalleryViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if #available(iOS 11.0, *) {
-            let size = CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width, height: view.safeAreaLayoutGuide.layoutFrame.height)
-            return size
+            itemSize = CGSize(width: view.safeAreaLayoutGuide.layoutFrame.width, height: view.safeAreaLayoutGuide.layoutFrame.height)
+            return itemSize
         }
-        let size = CGSize(width: view.frame.width, height: view.frame.height)
-        return size
+        itemSize = CGSize(width: view.frame.width, height: view.frame.height)
+        return itemSize
     }
     
     

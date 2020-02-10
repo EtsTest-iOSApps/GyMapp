@@ -42,8 +42,10 @@ class SignupViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(signupButton)
+        
         signupButton.translatesAutoresizingMaskIntoConstraints = false
         signupButton.layer.cornerRadius = 15
+        signupButton.clipsToBounds = true
         signupButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
         signupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25).isActive = true
         signupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25).isActive = true
@@ -68,9 +70,7 @@ class SignupViewController: UIViewController {
 
 extension SignupViewController: LoginButtonDelegate {
     
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
-    }
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {}
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         self.signupButton.isHidden = true

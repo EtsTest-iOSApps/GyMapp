@@ -9,9 +9,7 @@
 import UIKit
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    private let cellId = "cellId"
-    
+
     var spaceDetail: SpaceDetails? {
         didSet {
             DispatchQueue.main.async {
@@ -20,7 +18,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    let detailTableView: UITableView = {
+    private let detailTableView: UITableView = {
         let tv = UITableView()
         tv.allowsSelection = false
         tv.showsVerticalScrollIndicator = false
@@ -28,43 +26,56 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return tv
     }()
     
+    private let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupTableView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithTransparentBackground()
-            let backButtonAppearence = UIBarButtonItemAppearance()
-            let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
-            backButtonAppearence.normal.titleTextAttributes = titleTextAttributes
-            backButtonAppearence.highlighted.titleTextAttributes = titleTextAttributes
-            appearance.backButtonAppearance = backButtonAppearence
-            
-            navigationController?.navigationBar.standardAppearance = appearance
-            navigationController?.navigationBar.compactAppearance = appearance
-            navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        } else {
-            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            navigationController?.navigationBar.shadowImage = UIImage()
-            navigationController?.navigationBar.isTranslucent = true
-        }
-        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        super.viewWillAppear(animated)
+        setupNavigationBar(viewWillAppear: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            navigationController?.navigationBar.standardAppearance = appearance
-            navigationController?.navigationBar.compactAppearance = appearance
-            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        super.viewWillDisappear(animated)
+        setupNavigationBar(viewWillAppear: false)
+    }
+    
+    
+    private func setupNavigationBar(viewWillAppear: Bool) {
+        if viewWillAppear {
+            if #available(iOS 13.0, *) {
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithTransparentBackground()
+                let backButtonAppearence = UIBarButtonItemAppearance()
+                let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
+                backButtonAppearence.normal.titleTextAttributes = titleTextAttributes
+                backButtonAppearence.highlighted.titleTextAttributes = titleTextAttributes
+                appearance.backButtonAppearance = backButtonAppearence
+                
+                navigationController?.navigationBar.standardAppearance = appearance
+                navigationController?.navigationBar.compactAppearance = appearance
+                navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            } else {
+                navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+                navigationController?.navigationBar.shadowImage = UIImage()
+                navigationController?.navigationBar.isTranslucent = true
+            }
+            navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         } else {
-            navigationController?.navigationBar.isTranslucent = false
+            if #available(iOS 13.0, *) {
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                navigationController?.navigationBar.standardAppearance = appearance
+                navigationController?.navigationBar.compactAppearance = appearance
+                navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            } else {
+                navigationController?.navigationBar.isTranslucent = false
+            }
         }
     }
     
@@ -83,8 +94,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-
-    
     private func setupTableView() {
         detailTableView.separatorColor = .clear
         detailTableView.delegate = self
@@ -98,8 +107,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
     
-    
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HeaderLabel()
         switch section {
@@ -112,9 +119,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 5:
             header.text = "Opening hours"
         default:
-            let emptyView = UIView()
-            emptyView.backgroundColor = .white
-            emptyView.frame = .init(x: 0, y: 0, width: view.frame.width, height: 0)
             return nil
         }
         return header

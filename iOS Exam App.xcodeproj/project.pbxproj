@@ -17,7 +17,7 @@
 		0E5CD60F23ED3A440058FE70 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */; };
 		0EA2BE3523E9DE3700C70BDD /* MapArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */; };
 		0EA2BE3723E9E38300C70BDD /* MapArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */; };
-		0EA2BE3A23E9F7E600C70BDD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3923E9F7E600C70BDD /* Extensions.swift */; };
+		0EA2BE3A23E9F7E600C70BDD /* Extensions + CustomClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3923E9F7E600C70BDD /* Extensions + CustomClasses.swift */; };
 		0EA2BE3C23EA166100C70BDD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3B23EA166100C70BDD /* ListViewController.swift */; };
 		0EA2BE3E23EA1C6E00C70BDD /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */; };
 		0EA2BE4023EA25FA00C70BDD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */; };
@@ -47,7 +47,7 @@
 		0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
 		0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtwork.swift; sourceTree = "<group>"; };
 		0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtworkView.swift; sourceTree = "<group>"; };
-		0EA2BE3923E9F7E600C70BDD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0EA2BE3923E9F7E600C70BDD /* Extensions + CustomClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions + CustomClasses.swift"; sourceTree = "<group>"; };
 		0EA2BE3B23EA166100C70BDD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -96,8 +96,6 @@
 		0EA2BE4523EA3F6500C70BDD /* DetailTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */,
-				0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */,
 				0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */,
 				0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */,
 				0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */,
@@ -106,6 +104,15 @@
 				0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */,
 			);
 			path = DetailTableViewCells;
+			sourceTree = "<group>";
+		};
+		0EBF418023F1057A000ADFD3 /* Cell Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */,
+				0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */,
+			);
+			path = "Cell Model";
 			sourceTree = "<group>";
 		};
 		0EC961DF23E8C1C7000E6E4C = {
@@ -137,7 +144,7 @@
 				0EC961F623E8C1CD000E6E4C /* LaunchScreen.storyboard */,
 				0EC961F923E8C1CD000E6E4C /* Info.plist */,
 				0EE926FE23EE524C00ECEC81 /* GoogleService-Info.plist */,
-				0EA2BE3923E9F7E600C70BDD /* Extensions.swift */,
+				0EA2BE3923E9F7E600C70BDD /* Extensions + CustomClasses.swift */,
 			);
 			path = "iOS Exam App";
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 		0EC9620A23E8D9A0000E6E4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0EBF418023F1057A000ADFD3 /* Cell Model */,
 				0EC9620B23E8D9C4000E6E4C /* SpacesModel.swift */,
 				0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */,
 			);
@@ -320,7 +328,7 @@
 				0E5CD60D23ED31130058FE70 /* GalleryViewController.swift in Sources */,
 				0EA2BE3C23EA166100C70BDD /* ListViewController.swift in Sources */,
 				0E0F738623EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift in Sources */,
-				0EA2BE3A23E9F7E600C70BDD /* Extensions.swift in Sources */,
+				0EA2BE3A23E9F7E600C70BDD /* Extensions + CustomClasses.swift in Sources */,
 				0E5CD60F23ED3A440058FE70 /* ImageGalleryCell.swift in Sources */,
 				0E0F738A23EBDF7B004182A4 /* GymAmenitiesCell.swift in Sources */,
 				0EC961EC23E8C1C7000E6E4C /* AppDelegate.swift in Sources */,

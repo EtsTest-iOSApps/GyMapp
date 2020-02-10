@@ -35,8 +35,6 @@ class LoginViewController: UIViewController {
         setupViews()
     }
     
-    
-    
     private func setupNavigationBar() {
         navigationController?.navigationBar.backItem?.title = ""
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.8064885139, green: 0.6064415574, blue: 0.4238808751, alpha: 1)
@@ -63,15 +61,12 @@ class LoginViewController: UIViewController {
     private func performLogout() {
         let loginManager = LoginManager()
         loginManager.logOut()
-        
     }
     
 }
 
 extension LoginViewController: LoginButtonDelegate {
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
-    }
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {}
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         self.loginButton.isHidden = true

@@ -11,17 +11,9 @@ import CoreLocation
 
 class ListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    private let cellId = "cellId"
-    
     var spacesList =  [SpaceDetails]()
     
-    var userLocation: CLLocation? {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
+    private let cellId = "cellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()

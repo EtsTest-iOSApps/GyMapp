@@ -26,7 +26,7 @@ class ListViewCell: UICollectionViewCell {
         }
     }
     
-    let spaceImageView: CustomImageView = {
+    private let spaceImageView: CustomImageView = {
         let iv = CustomImageView()
         iv.contentMode = .scaleToFill
         
