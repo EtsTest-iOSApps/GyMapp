@@ -14,6 +14,7 @@ On the project I did complete all what you did ask for. I didn’t do the 3 bonu
 * Redesign the Login Facebook button to make the difference between “Sign in” and “Sign out” and to make it thicker.
 * Disable automatic dark mode for now.
 * Make the status bar light on the dark views (for example DetailViewController and GalleryViewController).
+* Work the logic in the Signup & Login ViewControllers to unhide the Facebook button after pressing "Cancel" in the WebView presented by Facebook SDK. I hide it to avoid the user to press it back (Log out) the time it validates information in Firebase. (I could use a cocoapod for a progress bar, but didn't want to implement third party libraries)
 
 # Cocoapods used:
 * Firebase SDK
