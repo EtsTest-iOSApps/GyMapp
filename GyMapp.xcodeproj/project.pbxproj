@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E0F738423EBC761004182A4 /* GymDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */; };
+		0E0F738623EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */; };
+		0E0F738823EBDDDA004182A4 /* GymEquipementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */; };
+		0E0F738A23EBDF7B004182A4 /* GymAmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */; };
+		0E0F738C23EBE145004182A4 /* GymLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738B23EBE145004182A4 /* GymLocationCell.swift */; };
+		0E0F738E23EBE17E004182A4 /* GymOpeningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */; };
+		0E2FA0E9249273AB004BFE3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2FA0E8249273AB004BFE3B /* Assets.xcassets */; };
+		0E5CD60D23ED31130058FE70 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CD60C23ED31130058FE70 /* GalleryViewController.swift */; };
+		0E5CD60F23ED3A440058FE70 /* ImageGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */; };
+		0EA2BE3523E9DE3700C70BDD /* MapArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */; };
+		0EA2BE3723E9E38300C70BDD /* MapArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */; };
+		0EA2BE3A23E9F7E600C70BDD /* Extensions + CustomClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3923E9F7E600C70BDD /* Extensions + CustomClasses.swift */; };
+		0EA2BE3C23EA166100C70BDD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3B23EA166100C70BDD /* ListViewController.swift */; };
+		0EA2BE3E23EA1C6E00C70BDD /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */; };
+		0EA2BE4023EA25FA00C70BDD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */; };
+		0EA2BE4723EA3F9600C70BDD /* BaseCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */; };
+		0EA2BE4923EA400700C70BDD /* GymImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */; };
+		0EC961EC23E8C1C7000E6E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC961EB23E8C1C7000E6E4C /* AppDelegate.swift */; };
+		0EC961EE23E8C1C7000E6E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC961ED23E8C1C7000E6E4C /* SceneDelegate.swift */; };
+		0EC961F023E8C1C7000E6E4C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC961EF23E8C1C7000E6E4C /* LandingViewController.swift */; };
+		0EC961F823E8C1CD000E6E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EC961F623E8C1CD000E6E4C /* LaunchScreen.storyboard */; };
+		0EC9620523E8CBC8000E6E4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9620423E8CBC8000E6E4C /* LoginViewController.swift */; };
+		0EC9620723E8CBDC000E6E4C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9620623E8CBDC000E6E4C /* SignupViewController.swift */; };
+		0EC9620923E8D0DC000E6E4C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9620823E8D0DC000E6E4C /* MapViewController.swift */; };
+		0EC9620C23E8D9C4000E6E4C /* SpacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9620B23E8D9C4000E6E4C /* SpacesModel.swift */; };
+		0EE926FF23EE524C00ECEC81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE926FE23EE524C00ECEC81 /* GoogleService-Info.plist */; };
+		A9CF0FC46CB7C320FABA74C5 /* Pods_GyMapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B03ACBDBCC59B5303E1B926 /* Pods_GyMapp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymDescriptionCell.swift; sourceTree = "<group>"; };
+		0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymEquipementCell.swift; sourceTree = "<group>"; };
+		0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymAmenitiesCell.swift; sourceTree = "<group>"; };
+		0E0F738B23EBE145004182A4 /* GymLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymLocationCell.swift; sourceTree = "<group>"; };
+		0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymOpeningCell.swift; sourceTree = "<group>"; };
+		0E2FA0E8249273AB004BFE3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GyMapp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		0E5CD60C23ED31130058FE70 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCell.swift; sourceTree = "<group>"; };
+		0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtwork.swift; sourceTree = "<group>"; };
+		0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapArtworkView.swift; sourceTree = "<group>"; };
+		0EA2BE3923E9F7E600C70BDD /* Extensions + CustomClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions + CustomClasses.swift"; sourceTree = "<group>"; };
+		0EA2BE3B23EA166100C70BDD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCells.swift; sourceTree = "<group>"; };
+		0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymImagesCell.swift; sourceTree = "<group>"; };
+		0EC961E823E8C1C7000E6E4C /* GyMapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyMapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EC961EB23E8C1C7000E6E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0EC961ED23E8C1C7000E6E4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0EC961EF23E8C1C7000E6E4C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		0EC961F723E8C1CD000E6E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0EC961F923E8C1CD000E6E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EC9620423E8CBC8000E6E4C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0EC9620623E8CBDC000E6E4C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0EC9620823E8D0DC000E6E4C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0EC9620B23E8D9C4000E6E4C /* SpacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesModel.swift; sourceTree = "<group>"; };
+		0EE926FE23EE524C00ECEC81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B03ACBDBCC59B5303E1B926 /* Pods_GyMapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyMapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		489B71F123979FB41190DC53 /* Pods-GyMapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyMapp.release.xcconfig"; path = "Target Support Files/Pods-GyMapp/Pods-GyMapp.release.xcconfig"; sourceTree = "<group>"; };
+		4B98BD81DBED5264A3334C0A /* Pods-GyMapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyMapp.debug.xcconfig"; path = "Target Support Files/Pods-GyMapp/Pods-GyMapp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EC961E523E8C1C7000E6E4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9CF0FC46CB7C320FABA74C5 /* Pods_GyMapp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EA2BE3823E9E38C00C70BDD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2BE3623E9E38300C70BDD /* MapArtworkView.swift */,
+				0EA2BE3D23EA1C6E00C70BDD /* ListViewCell.swift */,
+				0EA2BE4523EA3F6500C70BDD /* DetailTableViewCells */,
+				0E5CD60E23ED3A440058FE70 /* ImageGalleryCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0EA2BE4523EA3F6500C70BDD /* DetailTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2BE4823EA400700C70BDD /* GymImagesCell.swift */,
+				0E0F738323EBC761004182A4 /* GymDescriptionCell.swift */,
+				0E0F738723EBDDDA004182A4 /* GymEquipementCell.swift */,
+				0E0F738923EBDF7B004182A4 /* GymAmenitiesCell.swift */,
+				0E0F738B23EBE145004182A4 /* GymLocationCell.swift */,
+				0E0F738D23EBE17E004182A4 /* GymOpeningCell.swift */,
+			);
+			path = DetailTableViewCells;
+			sourceTree = "<group>";
+		};
+		0EBF418023F1057A000ADFD3 /* Cell Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2BE4623EA3F9600C70BDD /* BaseCells.swift */,
+				0E0F738523EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift */,
+			);
+			path = "Cell Model";
+			sourceTree = "<group>";
+		};
+		0EC961DF23E8C1C7000E6E4C = {
+			isa = PBXGroup;
+			children = (
+				0EC961EA23E8C1C7000E6E4C /* GyMapp */,
+				0EC961E923E8C1C7000E6E4C /* Products */,
+				55AEE992882FEF9201D54B39 /* Pods */,
+				C229E1E899EE88C07C642803 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0EC961E923E8C1C7000E6E4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EC961E823E8C1C7000E6E4C /* GyMapp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EC961EA23E8C1C7000E6E4C /* GyMapp */ = {
+			isa = PBXGroup;
+			children = (
+				0EC961FF23E8C4E3000E6E4C /* Delegate Files */,
+				0EC9620023E8C712000E6E4C /* Controllers */,
+				0EC9620A23E8D9A0000E6E4C /* Model */,
+				0EA2BE3823E9E38C00C70BDD /* Views */,
+				0E2FA0E8249273AB004BFE3B /* Assets.xcassets */,
+				0EC961F623E8C1CD000E6E4C /* LaunchScreen.storyboard */,
+				0EC961F923E8C1CD000E6E4C /* Info.plist */,
+				0EE926FE23EE524C00ECEC81 /* GoogleService-Info.plist */,
+				0EA2BE3923E9F7E600C70BDD /* Extensions + CustomClasses.swift */,
+			);
+			path = GyMapp;
+			sourceTree = "<group>";
+		};
+		0EC961FF23E8C4E3000E6E4C /* Delegate Files */ = {
+			isa = PBXGroup;
+			children = (
+				0EC961EB23E8C1C7000E6E4C /* AppDelegate.swift */,
+				0EC961ED23E8C1C7000E6E4C /* SceneDelegate.swift */,
+			);
+			path = "Delegate Files";
+			sourceTree = "<group>";
+		};
+		0EC9620023E8C712000E6E4C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0EC961EF23E8C1C7000E6E4C /* LandingViewController.swift */,
+				0EC9620423E8CBC8000E6E4C /* LoginViewController.swift */,
+				0EC9620623E8CBDC000E6E4C /* SignupViewController.swift */,
+				0EC9620823E8D0DC000E6E4C /* MapViewController.swift */,
+				0EA2BE3B23EA166100C70BDD /* ListViewController.swift */,
+				0EA2BE3F23EA25FA00C70BDD /* DetailViewController.swift */,
+				0E5CD60C23ED31130058FE70 /* GalleryViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0EC9620A23E8D9A0000E6E4C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EBF418023F1057A000ADFD3 /* Cell Model */,
+				0EC9620B23E8D9C4000E6E4C /* SpacesModel.swift */,
+				0EA2BE3423E9DE3700C70BDD /* MapArtwork.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55AEE992882FEF9201D54B39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B98BD81DBED5264A3334C0A /* Pods-GyMapp.debug.xcconfig */,
+				489B71F123979FB41190DC53 /* Pods-GyMapp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C229E1E899EE88C07C642803 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B03ACBDBCC59B5303E1B926 /* Pods_GyMapp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EC961E723E8C1C7000E6E4C /* GyMapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EC961FC23E8C1CD000E6E4C /* Build configuration list for PBXNativeTarget "GyMapp" */;
+			buildPhases = (
+				C22AB4C5CCD41F310EDF695B /* [CP] Check Pods Manifest.lock */,
+				0EC961E423E8C1C7000E6E4C /* Sources */,
+				0EC961E523E8C1C7000E6E4C /* Frameworks */,
+				0EC961E623E8C1C7000E6E4C /* Resources */,
+				14E727221078FFC542D6F72F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GyMapp;
+			productName = "iOS Exam App";
+			productReference = 0EC961E823E8C1C7000E6E4C /* GyMapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EC961E023E8C1C7000E6E4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Merouane Tazeka";
+				TargetAttributes = {
+					0EC961E723E8C1C7000E6E4C = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 0EC961E323E8C1C7000E6E4C /* Build configuration list for PBXProject "GyMapp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0EC961DF23E8C1C7000E6E4C;
+			productRefGroup = 0EC961E923E8C1C7000E6E4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EC961E723E8C1C7000E6E4C /* GyMapp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EC961E623E8C1C7000E6E4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EE926FF23EE524C00ECEC81 /* GoogleService-Info.plist in Resources */,
+				0EC961F823E8C1CD000E6E4C /* LaunchScreen.storyboard in Resources */,
+				0E2FA0E9249273AB004BFE3B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14E727221078FFC542D6F72F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GyMapp/Pods-GyMapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GyMapp/Pods-GyMapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GyMapp/Pods-GyMapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C22AB4C5CCD41F310EDF695B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GyMapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EC961E423E8C1C7000E6E4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EA2BE4023EA25FA00C70BDD /* DetailViewController.swift in Sources */,
+				0EC9620523E8CBC8000E6E4C /* LoginViewController.swift in Sources */,
+				0E0F738C23EBE145004182A4 /* GymLocationCell.swift in Sources */,
+				0EC9620923E8D0DC000E6E4C /* MapViewController.swift in Sources */,
+				0EC961F023E8C1C7000E6E4C /* LandingViewController.swift in Sources */,
+				0E0F738423EBC761004182A4 /* GymDescriptionCell.swift in Sources */,
+				0EA2BE4723EA3F9600C70BDD /* BaseCells.swift in Sources */,
+				0EA2BE4923EA400700C70BDD /* GymImagesCell.swift in Sources */,
+				0EA2BE3523E9DE3700C70BDD /* MapArtwork.swift in Sources */,
+				0EA2BE3E23EA1C6E00C70BDD /* ListViewCell.swift in Sources */,
+				0EA2BE3723E9E38300C70BDD /* MapArtworkView.swift in Sources */,
+				0E5CD60D23ED31130058FE70 /* GalleryViewController.swift in Sources */,
+				0EA2BE3C23EA166100C70BDD /* ListViewController.swift in Sources */,
+				0E0F738623EBCFA1004182A4 /* GymCollectionViewTableViewCell.swift in Sources */,
+				0EA2BE3A23E9F7E600C70BDD /* Extensions + CustomClasses.swift in Sources */,
+				0E5CD60F23ED3A440058FE70 /* ImageGalleryCell.swift in Sources */,
+				0E0F738A23EBDF7B004182A4 /* GymAmenitiesCell.swift in Sources */,
+				0EC961EC23E8C1C7000E6E4C /* AppDelegate.swift in Sources */,
+				0E0F738823EBDDDA004182A4 /* GymEquipementCell.swift in Sources */,
+				0E0F738E23EBE17E004182A4 /* GymOpeningCell.swift in Sources */,
+				0EC9620C23E8D9C4000E6E4C /* SpacesModel.swift in Sources */,
+				0EC961EE23E8C1C7000E6E4C /* SceneDelegate.swift in Sources */,
+				0EC9620723E8CBDC000E6E4C /* SignupViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0EC961F623E8C1CD000E6E4C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EC961F723E8C1CD000E6E4C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EC961FA23E8C1CD000E6E4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0EC961FB23E8C1CD000E6E4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EC961FD23E8C1CD000E6E4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B98BD81DBED5264A3334C0A /* Pods-GyMapp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RV4ZBHYRAW;
+				INFOPLIST_FILE = GyMapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merouanetazeka.GyMapp;
+				PRODUCT_NAME = GyMapp;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EC961FE23E8C1CD000E6E4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 489B71F123979FB41190DC53 /* Pods-GyMapp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RV4ZBHYRAW;
+				INFOPLIST_FILE = GyMapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merouanetazeka.GyMapp;
+				PRODUCT_NAME = GyMapp;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EC961E323E8C1C7000E6E4C /* Build configuration list for PBXProject "GyMapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC961FA23E8C1CD000E6E4C /* Debug */,
+				0EC961FB23E8C1CD000E6E4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EC961FC23E8C1CD000E6E4C /* Build configuration list for PBXNativeTarget "GyMapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC961FD23E8C1CD000E6E4C /* Debug */,
+				0EC961FE23E8C1CD000E6E4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0EC961E023E8C1C7000E6E4C /* Project object */;
+}
