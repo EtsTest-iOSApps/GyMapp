@@ -13,7 +13,7 @@ You will need a Mac running Xcode to run this application on your device or your
 * Download the project files to your computer.
 * Run the "**GyMapp.xcworkspace**" file.
 
-PS: The app support iOS 11 and above.
+PS: The app support iOS 10.0 and above.
 
 ## IV. Architecture
 
