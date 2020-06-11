@@ -1,21 +1,21 @@
-On the project I did complete all what you did ask for. I didn’t do the 3 bonus points. But while working on this project I understood the importance of Clean Swift Architecture which would’ve made the code cleaner, and the Unit Testing: the code safer. For the third point, I guess it would’ve took an observer to check validity of the account (with MVC, I would need to put this observer on all views…).
+## I. General info
+iOS application that fetch coordinates from an API and displays it on the map (using custom colors depending on gym's availability).
+Calculate distance between user's location and selected gym.
 
-# Bugs on the app:
-* MapView: for iOS 11 and newer, when pressed on the MarkerAnnotation, it sends you to the DetailViewController, by coming back to the map, the annotation stays look bigger than others, you need to press somewhere else on map to resize it.
+## II. Technologies
+- Swift 5
+- MapKit
+- Firebase (Auth)
+- Facebook SDK (Auth)
 
-* Sometimes I get an error message on the console saying “atlas destroyed..”, it is related to MKMapView (info found through Google & StackOverFlow). I don’t know if it is related to memory management (I am may be having a memory leak).
+## III. Setup
+You will need a Mac running Xcode to run this application on your device or your simulator.
+* Download the project files to your computer.
+* Run the "**iOS Exam App.xcworkspace**" file.
 
-* Rotation on gallery works well when you navigate from MapView to Details (press directly on the annotation from the map) and then press on the image at the top. But sometimes the scrollView (which takes care of the zooming function) bugs a little bit on the landscape mode. However, when you go to Details from the collectionView in the ListViewController (MapView, to List and then tap on a Collection View Cell) the rotation doesn’t enable in the gallery. I may think the problem is related with the fact that I present a navigation controller from MapView to ListView (And not pushing the list view using the same navigation controller). But everything works perfectly on portrait mode.
+PS: The app support iOS 11 and above.
 
-# Things I would do if I had more time:
-* Learn more about Clean Swift and Unit Testing and implement (to improve the architecture and scalabality of the whole app.)
-* Search more about the tool that will let me check for availability of the firebase user’s account (if disabled, send user to Landing View) (I am having Observers in my mind, but it will definitely require more in-depth researches).
-* I would try to fix the bugs enumerated above.
-* Redesign the Login Facebook button to make the difference between “Sign in” and “Sign out” and to make it thicker.
-* Disable automatic dark mode for now.
-* Make the status bar light on the dark views (for example DetailViewController and GalleryViewController).
-* Work the logic in the Signup & Login ViewControllers to unhide the Facebook button after pressing "Cancel" in the WebView presented by Facebook SDK. I hide it to avoid the user to press it back (Log out) the time it validates information in Firebase. (I could use a cocoapod for a progress bar, but didn't want to implement third party libraries)
+## IV. Architecture
 
-# Cocoapods used:
-* Firebase SDK
-* Facebook SDK
+## Design Pattern
+Model-View-Controller (MVC)
