@@ -11,7 +11,7 @@ Calculate distance between user's location and selected gym.
 ## III. Setup
 You will need a Mac running Xcode to run this application on your device or your simulator.
 * Download the project files to your computer.
-* Run the "**iOS Exam App.xcworkspace**" file.
+* Run the "**GyMapp.xcworkspace**" file.
 
 PS: The app support iOS 11 and above.
 
