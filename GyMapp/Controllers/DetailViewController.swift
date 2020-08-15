@@ -32,7 +32,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         setupView()
         setupTableView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +102,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         return 6
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

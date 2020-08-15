@@ -21,7 +21,6 @@ class MapViewController: UIViewController {
     
     private var spacesList = [SpaceDetails]()
     
-//    private var spacesImagesArray: [[UIImage]]?
     
     private var spacesDictionary: [String: SpaceDetails]? {
         didSet {
@@ -29,7 +28,7 @@ class MapViewController: UIViewController {
                 spacesList.append(value)
             })
             
-            self.displayDataOnMap()
+            self.displayDataOnMap();
         }
     }
     

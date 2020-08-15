@@ -51,6 +51,7 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
         return pc
     }()
     
+    
     override func initializeCell() {
         super.initializeCell()
         imagesCollectionView.delegate = self
@@ -70,9 +71,11 @@ class GymImagesCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSou
         pageControl.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return spaceImagesUrls?.count ?? 0
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCellId, for: indexPath) as! GymImageCell
