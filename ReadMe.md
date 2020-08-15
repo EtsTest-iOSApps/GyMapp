@@ -6,9 +6,9 @@ Calculate distance between user's location and selected gym.
 
 ## II. Screenshots
 
-![App_Facebook_Login](./gif_animations/anim1_facebook_login.gif | height=200)
-![Switch_From_MapView_to_ListView](./gif_animations/anim2_switch_from_map_to_list.gif)
-![Getting_Map_Details_From_Map](./gif_animations/anim3_get_detail_from_map_annotation.gif)
+![App_Facebook_Login](./gif_animations/facebook_login.gif | height=200)
+![Switch_From_MapView_to_ListView](./gif_animations/switch_from_map_to_list.gif)
+![Getting_Map_Details_From_Map](./gif_animations/get_detail_from_map_annotation.gif)
 
 ## III. Technologies
 - Swift 5
